@@ -9,7 +9,7 @@ for i in article:
    # if (i > 'a' and i < 'z') or (i > 'A' and i < 'Z'):
     if i.isalpha():
         if i not in new:
-            new[i]=1
+            new.setdefault(i,1)
         else:
             new[i]+=1
 
