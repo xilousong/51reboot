@@ -115,9 +115,45 @@ while True:
         fhandler.close()
         print("|{0:<5s}|{1:<6s}|{2:<3s}|{3:<15s}|{4:<15s}|".format("ID","姓名","年龄","联系方式","密码"))
         print('-'*60)
-        for k,v in users.items():
-            print("|{0:<5d}|{1:<8s}|{2:<5d}|{3:<19s}|{4:<15s}|".format(k,v['name'],v['age'],v['tel'],'*'*len(v['password'])))
-
+       
+        new_list=list(users.values())
+        lenth = len(new_list)
+        pxziduan = input('请输入您要排序的字段(name/age/tel):')
+        if pxziduan == 'name':
+            while lenth:
+                for i in range(lenth -1):
+                    if new_list[i]['name'] > new_list[i+1]['name']:
+                        new_list[i],new_list[i+1]=new_list[i+1],new_list[i]
+                lenth -= 1    
+            
+            for i in new_list:             
+                for k,v in users.items():
+                    if i['name'] == v['name']: 
+                        print("|{0:<5d}|{1:<8s}|{2:<5d}|{3:<19s}|{4:<15s}|".format(k,v['name'],v['age'],v['tel'],'*'*len(v['password'])))
+        if pxziduan == 'age':
+            while lenth:
+                for i in range(lenth -1):
+                    if new_list[i]['age'] > new_list[i+1]['age']:
+                        new_list[i],new_list[i+1]=new_list[i+1],new_list[i]
+                lenth -= 1    
+            
+            for i in new_list:             
+                for k,v in users.items():
+                    if i['age'] == v['age']: 
+                        print("|{0:<5d}|{1:<8s}|{2:<5d}|{3:<19s}|{4:<15s}|".format(k,v['name'],v['age'],v['tel'],'*'*len(v['password'])))
+        
+        if pxziduan == 'tel':
+            while lenth:
+                for i in range(lenth -1):
+                    if new_list[i]['tel'] > new_list[i+1]['tel']:
+                        new_list[i],new_list[i+1]=new_list[i+1],new_list[i]
+                lenth -= 1    
+            
+            for i in new_list:             
+                for k,v in users.items():
+                    if i['tel'] == v['tel']:
+                        print("|{0:<5d}|{1:<8s}|{2:<5d}|{3:<19s}|{4:<15s}|".format(k,v['name'],v['age'],v['tel'],'*'*len(v['password'])))
+ 
     if INPUT == "exit" or INPUT == "q":
         print('谢谢使用！！！')
         break
