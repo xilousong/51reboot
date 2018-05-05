@@ -2,7 +2,6 @@
 # encoding: utf-8
 
 
-
 def maopao():
     #content=input('请输入随机输入数字，以‘，’分开:')
     #content_new=list(content.split(','))
