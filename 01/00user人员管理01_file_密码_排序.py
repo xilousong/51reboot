@@ -22,7 +22,7 @@ while True:
     per={}
     
     if INPUT == "add":
-        new_user=input("请输入用户信息格式(用户名:年龄:联系方式): ").strip()
+        new_user=input("请输入用户信息格式(用户名:年龄:联系方式:密码): ").strip()
         if (len(new_user.split(':')) != 4) or (not new_user.split(':')[1].isdigit()):
             print('您的输入有误，请重新输入。')
         #if new_user.split(':')[0] in users.keys():
@@ -54,11 +54,15 @@ while True:
                 del users[input_txt]
                 fhandler = open('users.data.txt','wt')
                 for k,v in users.items():
-                    fhandler.write('{0},{1},{2},{3},{4}\n'.format(k,v['name'],v['age'],v['tel']))
+                    fhandler.write('{0},{1},{2},{3},{4}\n'.format(k,v['name'],v['age'],v['tel'],v['password']))
                 fhandler.close()
 
 
     if INPUT == "update":
+        #yanzhen = input('请输入验证信息(用户名/密码):')
+        #yz_list=list(yanzhen.split('/'))
+        #for k,v in users.items():
+        #    if (yz_list[0] == v['name']) and (yz_list[1] == v['password']):
         input_txt=int(input("请输入要修改的用户ID："))
         if input_txt not in list(users.keys()):
             print("此用户不存在！！！")
